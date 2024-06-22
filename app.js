@@ -2,8 +2,8 @@ if (process.env.NODE_ENV !== "production"){
     require('dotenv').config();
 } 
 
-console.log(process.env.SECRET)
-console.log(process.env.API_KEY)
+// console.log(process.env.SECRET)
+// console.log(process.env.API_KEY)
 
 const express = require("express");
 const path = require("path");
@@ -25,13 +25,14 @@ const reviewRoutes = require('./routes/reviews');
 
 const MongoStore = require('connect-mongo');
 
-const dbUrl = process.env.DB_URL;
+//connects to mongodb atlas:
 
+const dbUrl = process.env.DB_URL;
 
 mongoose.set('strictQuery', true);
 
+//mongo local instance for dev and testing:
 // const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp';
-
 // mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
 
 mongoose.connect(dbUrl);
@@ -82,7 +83,6 @@ const sessionConfig = {
     maxAge: 1000 * 60 * 60 * 24 * 7
   }
 }
-
 
 //configuring session
 app.use(session(sessionConfig))
@@ -148,7 +148,8 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.use((req, res, next) => {
-  console.log(req.query)
+  // console.log(req.query) this was causing an empty object to be printed to 
+  // console for any little thing like page reload
   // console.log(req.session)
   res.locals.currentUser = req.user;
   res.locals.success = req.flash('success');
@@ -175,8 +176,6 @@ app.use((err, req, res, next) => {
 })
 
 const port = process.env.PORT || 3000;
-
-
 
 app.listen(port, () => {
   console.log(`Serving on port ${port}`);
