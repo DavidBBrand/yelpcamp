@@ -27,12 +27,12 @@ const MongoStore = require('connect-mongo');
 
 //connects to mongodb atlas:
 
-const dbUrl = process.env.DB_URL;
+// const dbUrl = process.env.DB_URL;
 
 mongoose.set('strictQuery', true);
 
 //mongo local instance for dev and testing:
-// const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp';
+const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp';
 // mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
 
 mongoose.connect(dbUrl);
