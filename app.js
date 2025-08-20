@@ -41,8 +41,19 @@ const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
-  console.log("db connected");
+  console.log("db connected. M0 Atlas cluster engaged");
+  console.log(`The host property of connection instance object is ${db.host}`)
+  console.log(`the name of this connection is ${db.name}`)
+  console.log(`the db.port value is ${db.port}`)
+  console.log(`the db.readyState value is ${db.readyState}`)
 });
+
+// The readyState property of a Mongoose connection represents the current connection state as a number. It can have the following values:
+// 0: Disconnected
+// 1: Connected
+// 2: Connecting
+// 3: Disconnecting
+// 4: Invalid credentials
 
 const app = express();
 
@@ -56,7 +67,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({
   replaceWith: '_'
 }))
-
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   touchAfter: 24 * 60 * 60,
@@ -83,6 +93,7 @@ const sessionConfig = {
     maxAge: 1000 * 60 * 60 * 24 * 7
   }
 }
+
 
 //configuring session
 app.use(session(sessionConfig))
@@ -132,10 +143,11 @@ app.use(
               "https://res.cloudinary.com/dbrsz3qju/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT
               "https://images.unsplash.com/",
           ],
-          fontSrc: ["'self'", ...fontSrcUrls],
+          fontSrc: ["'self'", "https://fonts.gstatic.com", ...fontSrcUrls],
       },
   })
-);
+);-
+
 
 //passport middleware for authentication and encryption for passwords login usernames, etc
 //passport middleware
