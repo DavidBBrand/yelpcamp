@@ -128,4 +128,11 @@ map.on("load", () => {
     map.getCanvas().style.cursor = "";
   });
 });
+// This file is part of the Yelpcamp project, which visualized campgrounds on a map using Mapbox GL JS.
+// It initialized a Mapbox map, adds a GeoJSON source for campgrounds, and clusters them.
+// It also handles click events to zoom into clusters and display information about individual campgrounds.
+// The map uses different styles for clusters and unclustered points, and displays popups with campground details.
+
+
+
 
