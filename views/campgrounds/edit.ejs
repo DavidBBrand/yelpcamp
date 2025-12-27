@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate')%>
 <div class="row">
-    <h1 class="text-center">Edit Your Campground Shit Here:</h1>
+    <h1 class="text-center"><b>Edit Your Campground</b></h1>
     <div class="col-6 offset-3">
         <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
@@ -25,7 +25,6 @@
                         aria-describedby="price-label" name="campground[price]" value="<%=campground.price %>" required>
                 </div>
             </div>
-
             <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
                 <textarea class="form-control" type="text" id="description"
@@ -48,9 +47,7 @@
     </div>
 </div>
 
-<script>
-    document.querySelector('body').style.backgroundImage = 'conic-gradient(lightGreen, yellow, brown, blanchedAlmond, lightblue, whiteSmoke, lightGreen)';
-</script>
+
 
 
 
