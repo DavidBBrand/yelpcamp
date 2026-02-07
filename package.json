@@ -25,7 +25,7 @@
     "joi": "^17.7.1",
     "method-override": "^3.0.0",
     "mongodb": "^5.6.0",
-    "mongoose": "^6.11.1",
+    "mongoose": "^9.1.6",
     "multer": "^1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",
     "passport": "^0.6.0",
@@ -34,4 +34,3 @@
     "sanitize-html": "^2.11.0"
   }
 }
-
