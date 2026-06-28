@@ -32,12 +32,12 @@
 <script>
     const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
 </script>
-    <div class="row">
-        <div class="col-6">
+    <div class="row mb-3">
+        <div class="col-6 mb-2">
             <div id="campgroundCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <% campground.images.forEach((img, i) => {  %>
-                    <div class="carousel-item <%= i === 0 ? 'active' : ' '%>">
+                    <div class="carousel-item mb-2 <%= i === 0 ? 'active' : ' '%>">
                         <img crossorigin="anonymous" src="<%= img.url%>" class="d-block w-100" alt="">
                     </div>
                     <% }) %>
@@ -146,6 +146,9 @@
                                         <button class="btn-sm btn-danger">Delete</button>
                                     </form>
                                     <% } %>
+                            </div>
+                            <div class="card-footer text-muted small">
+                                <%= review.createdAt ? new Date(review.createdAt).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '' %>
                             </div>
                         </div>
                         <% } %>

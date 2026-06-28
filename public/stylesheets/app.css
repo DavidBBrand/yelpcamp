@@ -44,10 +44,14 @@ img {
     color: lightyellow;
     font-family:'Roboto', sans-serif;
     font-size: 15px;
-    letter-spacing: 2px;
     background-color: rgb(171, 54, 11);
 }
 
 .btn-success {
-    border: 16px ridge rgb(156, 156, 223);
+    border: 4px ridge rgb(42, 214, 59);
 }
+
+.form-control {
+    background: rgb(250, 243, 233);
+}
+
