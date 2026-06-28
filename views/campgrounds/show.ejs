@@ -55,7 +55,7 @@
                 <% } %>
             </div>
 
-            <div id="map"></div>
+            <div id="map" style="height:300px; border-radius:0.5rem; margin-bottom:1rem;"></div>
 
             <div class="card mb-3">
 
@@ -86,7 +86,7 @@
                     <% } %>
 
                         <div class="card-footer text-muted">
-                            2 days ago
+                            Added <%= campground.createdAt ? new Date(campground.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'unknown' %>
                         </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                 </form>
                 <% } %>
                     <% for(let review of campground.reviews) { %>
-                        <div class="card">
+                        <div class="card mb-2">
                             <div class="mb-3 card-body">
                                 <h5 class="card-title">
                                     <%= review.author.username %>

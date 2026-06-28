@@ -10,9 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Handjet:wght@300&display=swap" rel="stylesheet">
 
-    <div id="cluster-map">
-
-    </div>
+    <div id="cluster-map" style="height:400px;"></div>
     <br>
 
     <h1 class="text-white text-center">All Campgrounds</h1>
@@ -20,13 +18,13 @@
         <a href="/campgrounds/new" class="text-white">Add A Campground!</a>
     </div>
     <% for (let campground of campgrounds){%>
-        <div class="card mb-3">
-            <div class="row">
+        <div class="card mb-2 rounded-6 overflow-hidden border-0 shadow-sm">
+            <div class="row g-0">
                 <div class="col-md-4">
                     <%if(campground.images.length) {%>
-                    <img crossorigin="anonymous" class="img-fluid" alt="" src="<%=campground.images[0].url%>">
+                    <img crossorigin="anonymous" class="img-fluid w-100 h-100" style="object-fit:cover;" alt="" src="<%=campground.images[0].url%>">
                     <% }else {%>
-                        <img crossorigin="anonymous" class="img-fluid" alt="" src="https://res.cloudinary.com/dbrsz3qju/image/upload/v1691854578/YelpCamp/v8mspvlperpgjh2crjvu.jpg">
+                        <img crossorigin="anonymous" class="img-fluid w-100 h-100" style="object-fit:cover;" alt="" src="https://res.cloudinary.com/dbrsz3qju/image/upload/v1691854578/YelpCamp/v8mspvlperpgjh2crjvu.jpg">
                     <% } %>
                 </div>
                 <div class="col-md-8">

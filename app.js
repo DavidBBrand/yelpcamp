@@ -67,11 +67,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize({
   replaceWith: '_'
 }))
+const secret = process.env.SECRET || 'fallbacksecretfordev';
+
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   touchAfter: 24 * 60 * 60,
   crypto: {
-      secret: 'thisshouldbeabettersecret!'
+      secret
   }
 });
 
@@ -82,7 +84,7 @@ store.on('error', function(e){
 const sessionConfig = {
   store,
   name: 'session',
-  secret: 'thisshouldbeabettersecret!',
+  secret,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -124,6 +126,7 @@ const connectSrcUrls = [
   "https://a.tiles.mapbox.com/",
   "https://b.tiles.mapbox.com/",
   "https://events.mapbox.com/",
+  "https://*.mapbox.com/",
 ];
 const fontSrcUrls = [];
 
@@ -142,11 +145,13 @@ app.use(
               "data:",
               "https://res.cloudinary.com/dbrsz3qju/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT
               "https://images.unsplash.com/",
+              "https://api.mapbox.com/",
+              "https://*.mapbox.com/",
           ],
           fontSrc: ["'self'", "https://fonts.gstatic.com", ...fontSrcUrls],
       },
   })
-);-
+);
 
 
 //passport middleware for authentication and encryption for passwords login usernames, etc

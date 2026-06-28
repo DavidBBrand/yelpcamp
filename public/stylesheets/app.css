@@ -1,7 +1,8 @@
 #cluster-map {
     width:100%;
     height:400px;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 25%;
+    border: 4px ridge rgb(42, 131, 141);
 
 }
 
@@ -12,4 +13,41 @@
 
 img {
     border-radius: 4px;
+}
+
+.card {
+    border-radius: 2rem !important;
+    overflow: hidden;
+    background-color: rgba(199, 209, 210, 0.85);
+}
+
+/* list-group-flush clips the card's border-radius on last/first items — fix that */
+.card .list-group-item:last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.card-footer {
+    border-bottom-left-radius: 1rem !important;
+    border-bottom-right-radius: 1rem !important;
+}
+
+.btn {
+    border-radius: 1rem !important;
+    color: lightyellow;
+    font-family:'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.btn-sm {
+    border-radius: .78rem !important;
+    color: lightyellow;
+    font-family:'Roboto', sans-serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    background-color: rgb(171, 54, 11);
+}
+
+.btn-success {
+    border: 16px ridge rgb(156, 156, 223);
 }
